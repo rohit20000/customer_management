@@ -31,12 +31,8 @@ public class CrudbootApplication {
 	public CommandLineRunner demo(StudentRepository repository, CourseRepository crepository, UserRepository urepository) {
 		return (args) -> {
 			// save students
-			repository.save(new Student("John", "Johnson", "IT", "john@john.com")); 
-			repository.save(new Student("Steve", "Stevens", "IT", "steve.stevent@st.com"));
-			repository.save(new Student("Mary", "Robinson", "IT", "mary@robinson.com"));
-			repository.save(new Student("Kate", "Keystone", "Nursery","kate@kate.com"));
-			repository.save(new Student("Diana", "Doll", "Business","diana@doll.com"));
-			
+			repository.save(new Student("John", "Johnson","Street1","address1" ,"City1", "State1","gmail.com", "XXXXXX" ));
+			repository.save(new Student("Mary", "Moore","Street2","address2" ,"City2", "State2","gmail.com", "XXXXXX" ));
 			Stream.of("Programming Java", "Spring Boot basics", "Marketing 1", "Marketing 2").forEach(name -> {
 				crepository.save(new Course(name));
 			});

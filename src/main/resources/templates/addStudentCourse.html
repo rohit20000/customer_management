@@ -14,22 +14,27 @@
 		 <div class="panel-heading">Student info</div>
 		 <div class="panel-body" style="padding-left: 5px;">
 			Name: <b th:text="${student.firstName}" /> <b th:text="${student.lastName}" /><br/>
-			Email: <span th:text="${student.email}" /><br/>
-			Department: <span th:text="${student.department}" /><br/>
-			<br/>Courses:
-				<span th:each="course : ${student.courses}">
-					<br/>&nbsp;&nbsp;<span th:text="${course.name}" />
-				</span>
-				<br/>
+			Street: <span th:text="${student.street}" /><br/>
+			 Address: <span th:text="${student.address}" /><br/>
+			 City: <span th:text="${student.city}" /><br/>
+			 State: <span th:text="${student.state}" /><br/>
+			 Email: <span th:text="${student.email}" /><br/>
+			 Phone: <span th:text="${student.phone}" /><br/>
+<!--			Department: <span th:text="${student.department}" /><br/>-->
+<!--			<br/>Courses:-->
+<!--				<span th:each="course : ${student.courses}">-->
+<!--					<br/>&nbsp;&nbsp;<span th:text="${course.name}" />-->
+<!--				</span>-->
+<!--				<br/>-->
 				</div>
 		</div>	
-			<div class="col-md-6">
-			<select class="form-control" name="courseId">
-				<option th:each="course : ${courses}" 
-					th:value="${course.courseid}" 
-					th:text="${course.name}">Course</option>
-			</select>
-			</div>
+<!--			<div class="col-md-6">-->
+<!--			<select class="form-control" name="courseId">-->
+<!--				<option th:each="course : ${courses}" -->
+<!--					th:value="${course.courseid}" -->
+<!--					th:text="${course.name}">Course</option>-->
+<!--			</select>-->
+<!--			</div>-->
 			<hr>
 			<input type="submit" name="action" class="btn btn-primary" value="Save"></input>
 			<input type="submit" name="action" class="btn btn-secondary" value="Cancel"></input>

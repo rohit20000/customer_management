@@ -4,27 +4,49 @@ import java.util.HashSet;
 import java.util.Set;
 
 import jakarta.persistence.*;
-
+/*
+{
+"first_name": "Jane",
+"last_name": "Doe",
+"street": "Elvnu Street",
+"address": "H no 2 ",
+"city": "Delhi",
+"state": "Delhi",
+"email": "sam@gmail.com",
+"phone": "12345678"
+}
+ */
 @Entity
 public class Student {
 	private long id;	 
 	private String firstName;	
 	private String lastName;
-	private String department;    
-    private String email;    
-    
+	private String Street;
+	private String Address;
+	private String City;
+	private String State;
+
+	private String email;
+	private String Phone;
+
 	private Set<Course> courses = new HashSet<Course>(0);    
     
     public Student() {
     }
 
-	public Student(String firstName, String lastName, String department, String email) {
-		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.department = department;
-		this.email = email;
-	}
+	public Student(String firstName, String lastName,String Street , String Address , String City , String State , String email , String Phone) {
+        super();
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.Street = Street;
+        this.Address = Address;
+        this.City = City;
+        this.State = State;
+        this.email = email;
+        this.Phone = Phone;
+    }
+
+
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)	
@@ -53,25 +75,50 @@ public class Student {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-
-    @Column(name = "department")
-	public String getDepartment() {
-		return department;
+	@Column(name ="street")
+  	public String getStreet() {
+		return Street;
 	}
-
-	public void setDepartment(String department) {
-		this.department = department;
+	public void setStreet(String Street) {
+		this.Street = Street;
 	}
+	@Column(name ="address")
+	public String getAddress() {
+		return Address;
+	}
+	public void setAddress(String Address) {
 
-    @Column(name = "email")	
-    public String getEmail() {
+		this.Address = Address;
+	}
+	@Column(name="city")
+	public String getCity() {
+		return City;
+	}
+	public void setCity(String City) {
+		this.City = City;
+	}
+	@Column(name ="state")
+	public String getState() {
+		return State;
+	}
+	public void setState(String State) {
+		this.State = State;
+	}
+	@Column(name="email")
+	public String getEmail() {
 		return email;
 	}
-
 	public void setEmail(String email) {
 		this.email = email;
-	}	
+	}
+	public String getPhone() {
+		return Phone;
+	}
 
+		@Column(name="phone")
+		public void setPhone(String Phone) {
+		 this.Phone = Phone;
+		}
 	@ManyToMany(cascade = CascadeType.MERGE)
 	@JoinTable(name = "student_course", joinColumns = { @JoinColumn(name = "id") }, inverseJoinColumns = { @JoinColumn(name = "courseid") })
 	public Set<Course> getCourses() {
